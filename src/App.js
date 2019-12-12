@@ -1,9 +1,16 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+
+import { featuresReducer, featureReducer } from './reducers/featureReducer';
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+
+
+const store = createStore(featureReducer);
 
 const App = () => {
   const state = {
@@ -23,6 +30,9 @@ const App = () => {
     ]
   };
 
+  const handleChanges = e => {
+    this.setState({ newFeature: e.target.value });
+  };
   const removeFeature = item => {
     // dispatch an action here to remove an item
   };
